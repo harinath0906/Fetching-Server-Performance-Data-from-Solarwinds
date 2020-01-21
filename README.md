@@ -64,6 +64,7 @@ Code for connect to SolarWinds REST APIs
  Solarwinds's OrionSDK provides the ability to execute SQL queries via REST interface. More details below.
  
  https://support.solarwinds.com/SuccessCenter/s/article/Use-SolarWinds-Query-Language-SWQL
+ 
  https://github.com/solarwinds/OrionSDK/wiki/REST 
  
  This means we can execute all the above queries to fetch performance data via REST.

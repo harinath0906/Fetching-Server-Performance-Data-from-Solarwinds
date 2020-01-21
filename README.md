@@ -57,3 +57,15 @@ SELECT Nodes.Caption,Volumes.DisplayName,VolumeUsageHistory.DateTime,VolumeUsage
 SELECT Nodes.Caption,Volumes.DisplayName,VolumeUsageHistory.DateTime,VolumeUsageHistory.DiskSize,VolumeUsageHistory.AvgDiskUsed,VolumeUsageHistory.PercentDiskUsed from Orion.Nodes INNER JOIN Orion.Volumes  ON (Nodes.NodeID = Volumes.NodeID) INNER JOIN  Orion.VolumeUsageHistory ON (VolumeUsageHistory.VolumeID = Volumes.VolumeID AND VolumeUsageHistory.NodeID = Volumes.NodeID) where Volumes.Type not in ('Floppy Disk','RAM','RAM Disk','Virtual Memory','Other') AND Nodes.Caption = 'somehost' AND Volumes.DisplayName LIKE '/boot' and 
 Code for connect to SolarWinds REST APIs
  
+ ## Do we need to connect to SQL for executing these queries??
+ 
+ Well No. 
+ 
+ Solarwinds's OrionSDK provides the ability to execute SQL queries via REST interface. More details below.
+ 
+ https://support.solarwinds.com/SuccessCenter/s/article/Use-SolarWinds-Query-Language-SWQL
+ https://github.com/solarwinds/OrionSDK/wiki/REST 
+ 
+ This means we can execute all the above queries to fetch performance data via REST.
+ 
+ 

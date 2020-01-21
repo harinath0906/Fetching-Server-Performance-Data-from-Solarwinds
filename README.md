@@ -57,7 +57,7 @@ SELECT Nodes.Caption,Volumes.DisplayName,VolumeUsageHistory.DateTime,VolumeUsage
 SELECT Nodes.Caption,Volumes.DisplayName,VolumeUsageHistory.DateTime,VolumeUsageHistory.DiskSize,VolumeUsageHistory.AvgDiskUsed,VolumeUsageHistory.PercentDiskUsed from Orion.Nodes INNER JOIN Orion.Volumes  ON (Nodes.NodeID = Volumes.NodeID) INNER JOIN  Orion.VolumeUsageHistory ON (VolumeUsageHistory.VolumeID = Volumes.VolumeID AND VolumeUsageHistory.NodeID = Volumes.NodeID) where Volumes.Type not in ('Floppy Disk','RAM','RAM Disk','Virtual Memory','Other') AND Nodes.Caption = 'somehost' AND Volumes.DisplayName LIKE '/boot' and 
 Code for connect to SolarWinds REST APIs
  
- ## Do we need to connect to SQL for executing these queries??
+ ## Do we need to connect to SQL for executing these queries?
  
  Well No. 
  
@@ -68,4 +68,9 @@ Code for connect to SolarWinds REST APIs
  
  This means we can execute all the above queries to fetch performance data via REST.
  
+ ## Code for performing REST calls
+ Connect_to_Solarwinds_via_REST.groovy - demonstrate how to connect to Solarwinds and execute the above mentioned SQL queries. This uses Apache HttpComponents library.
  
+ This can be used as a starter code for building an a system between Solarwinds and other tools which will fetch the performance data and push / give to other tools.
+ 
+ This can be converted to Java code with ease.
